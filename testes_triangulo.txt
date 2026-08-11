@@ -1,0 +1,25 @@
+Teste 1:
+Verificar se a lógica do triângulo equilátero funciona
+
+Como:
+Colocar três entradas idênticas e o esperar o resultado "Equilátero" como retorno da função
+
+Exemplos:
+
+Entrada
+
+Teste 2:
+Verificar se a lógica do triângulo isósceles funciona
+
+Como:
+Colocar ao menos duas entradas idênticas e o esperar o resultado "Isósceles" como retorno da função
+
+Exemplos:
+
+Teste 3:
+Verificar se a lógica do triângulo escaleno funciona
+
+Como:
+Colocar três entradas distintas e o esperar o resultado "Escaleno" como retorno da função
+
+Exemplos:
