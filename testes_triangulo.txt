@@ -23,3 +23,12 @@ Como:
 Colocar três entradas distintas e o esperar o resultado "Escaleno" como retorno da função
 
 Exemplos:
+
+===
+
+Top 10 critérios de teste:
+Entrada: 3 variáveis inteiras positivas
+Condições: valores inteiros positivos, a soma de dois lados deve ser maior que um lado, Equilátero: 3 lados iguais, Isósceles: 2 lados iguais, Escaleno: todos os lados diferentes
+
+Classes válidas: 1. tam == 3, 4. a + b > c 6. a == b && b == c, 8. a == b && b != c, 12. a != b && b != c && a != c
+Classes inválidas: 2. tam < 3, 3. tam > 3, 5. a + b <= c, 7. a == b && b != c, 9. a != b && b != c, 10. a == b && b == c, 11. a != b && b != c && a != c, 13. a == b && b == c, 14. 
