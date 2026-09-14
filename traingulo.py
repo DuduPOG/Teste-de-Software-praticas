@@ -1,29 +1,37 @@
-print("Digite 3 lados de um triângulo para verficar qual é seu tipo:")
-print("Tipos possíveis:")
-print("Equilátero, todos os lados iguais")
-print("Isósceles, dois lados iguais")
-print("Escaleno, nenhum lado igual")
-
-lado_a = int(input("Lado A: "))
-
-lado_b = int(input("Lado B: "))
-
-lado_c = int(input("Lado C: "))
-
-# Função que retorna qual é o tipo de triângulo com base na entrada de seus três lados
 def qualTrianguloEh(a: int, b: int, c: int) -> str:
-    
-    if (lado_a == lado_b and lado_b == lado_c):
-        return "Equilátero"
-    elif (lado_a == lado_b or lado_a == lado_c or lado_b == lado_c):
-        return "Isósceles"
-    else:
-        return "Escaleno"
-    
-"""
-def ehValido(a: int, b: int, c: int):
-"""
-    
+    """Retorna o tipo do triângulo ou uma mensagem de entrada inválida."""
+    lados = (a, b, c)
 
-print(qualTrianguloEh(lado_a, lado_b, lado_c))
+    if any(isinstance(lado, bool) or not isinstance(lado, (int, float)) for lado in lados):
+        return "Entrada inválida"
+
+    if any(lado <= 0 for lado in lados):
+        return "Os lados devem ser positivos"
+
+    maior_lado = max(lados)
+    outros_lados = sum(lados) - maior_lado
+    if outros_lados <= maior_lado:
+        return "Os lados não formam um triângulo"
+
+    if a == b == c:
+        return "Equilátero"
+    if a == b or a == c or b == c:
+        return "Isósceles"
+    return "Escaleno"
+
+
+def ler_lado(nome: str):
+    """Lê um lado sem permitir que uma entrada inválida gere exceção."""
+    try:
+        return float(input(f"Lado {nome}: "))
+    except (TypeError, ValueError):
+        return None
+
+
+if __name__ == "__main__":
+    print("Digite 3 lados de um triângulo para verificar qual é seu tipo:")
+    print("Tipos possíveis: Equilátero, Isósceles e Escaleno")
+
+    lados = [ler_lado(nome) for nome in ("A", "B", "C")]
+    print(qualTrianguloEh(*lados))
     
