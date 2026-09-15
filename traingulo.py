@@ -1,5 +1,4 @@
 def qualTrianguloEh(a: int, b: int, c: int) -> str:
-    """Retorna o tipo do triângulo ou uma mensagem de entrada inválida."""
     lados = (a, b, c)
 
     if any(isinstance(lado, bool) or not isinstance(lado, (int, float)) for lado in lados):
@@ -19,19 +18,14 @@ def qualTrianguloEh(a: int, b: int, c: int) -> str:
         return "Isósceles"
     return "Escaleno"
 
-
 def ler_lado(nome: str):
-    """Lê um lado sem permitir que uma entrada inválida gere exceção."""
     try:
         return float(input(f"Lado {nome}: "))
     except (TypeError, ValueError):
         return None
 
+print("Digite 3 lados de um triângulo para verificar qual é seu tipo:")
+print("Tipos possíveis: Equilátero, Isósceles e Escaleno")
 
-if __name__ == "__main__":
-    print("Digite 3 lados de um triângulo para verificar qual é seu tipo:")
-    print("Tipos possíveis: Equilátero, Isósceles e Escaleno")
-
-    lados = [ler_lado(nome) for nome in ("A", "B", "C")]
-    print(qualTrianguloEh(*lados))
-    
+lados = [ler_lado(nome) for nome in ("A", "B", "C")]
+print(qualTrianguloEh(*lados))
